@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import subprocess
 import os
 
@@ -21,6 +21,8 @@ setup(
     long_description="Readme description",
     long_description_content_type="text/x-rst",
     install_requires=REQUIREMENTS,
+    package_dir={"": "src"},
+    packages=find_packages(where="src"),
     url="https://pypi.org/project/balance-service",
     classifiers=[
         "Programming Language :: Python :: 3.7",
