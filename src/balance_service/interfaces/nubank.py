@@ -13,6 +13,10 @@ class NuBankServiceBasicInterface(ABC):
         pass
 
     @abstractmethod
+    def has_certificate(self, certificate_path: str):
+        pass
+
+    @abstractmethod
     def get_balance(self):
         pass
 
@@ -25,8 +29,15 @@ class NuBankServiceInterface:
         self.token = token
         self.certificate_path = certificate_path
         self.bank_service = bank_service
-        self.bank_service.authenticate(self.token, self.certificate_path)
+        self.has_certificate = self.bank_service.has_certificate(self.certificate_path)
+
+        if self.has_certificate:
+            self.bank_service.authenticate(
+                self.token,
+                self.certificate_path
+            )
 
     def get_balance(self):
-        return self.bank_service.get_balance()
-
+        if self.has_certificate:
+            return self.bank_service.get_balance()
+        return 0
