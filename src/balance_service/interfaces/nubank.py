@@ -20,6 +20,10 @@ class NuBankServiceBasicInterface(ABC):
     def get_balance(self):
         pass
 
+    @abstractmethod
+    def get_transactions(self):
+        pass
+
 
 class NuBankServiceInterface:
     def __init__(self,
@@ -41,3 +45,9 @@ class NuBankServiceInterface:
         if self.has_certificate:
             return self.bank_service.get_balance()
         return 0
+
+    def get_transactions(self, quantity: int):
+        if self.has_certificate:
+            transactions = self.bank_service.get_transactions()
+            return transactions[:quantity]
+        return []
