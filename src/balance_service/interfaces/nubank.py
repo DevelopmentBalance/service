@@ -46,7 +46,7 @@ class NuBankServiceInterface:
             return self.bank_service.get_balance()
         return 0
 
-    def get_transactions(self, quantity: int):
+    def get_transactions(self, quantity: None):
         if self.has_certificate:
             transactions = self.bank_service.get_transactions()
             return transactions[:quantity]
