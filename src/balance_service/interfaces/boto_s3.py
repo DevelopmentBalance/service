@@ -19,7 +19,7 @@ class BasicBotoS3:
         pass
 
     @abstractmethod
-    def has_file(self, file_path: str) -> bool:
+    def has_file(self, bucket_path: str, file_path: str) -> bool:
         pass
 
 
@@ -45,5 +45,8 @@ class BotoS3:
             file_path=file_path,
             file_path_new=file_path_new,)
 
-    def has_file(self, file_path: str) -> bool:
-        return self.interactor_service.has_file(file_path=file_path)
+    def has_file(self, bucket_path: str, file_path: str) -> bool:
+        return self.interactor_service.has_file(
+            bucket_path=bucket_path,
+            file_path=file_path
+        )
