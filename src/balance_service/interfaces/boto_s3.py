@@ -11,11 +11,11 @@ class BasicBotoS3:
         pass
 
     @abstractmethod
-    def upload_file(self, file_path: str, file_path_new: str):
+    def upload_file(self, bucket_path: str, file_path: str, file_path_new: str):
         pass
 
     @abstractmethod
-    def download_file(self, file_path: str, file_path_new: str):
+    def download_file(self, bucket_path: str, file_path: str, file_path_new: str):
         pass
 
     @abstractmethod
@@ -28,16 +28,20 @@ class BotoS3:
         self.interactor_service = interactor_service
 
     def upload_file(self,
+                    bucket_path: str,
                     file_path: str,
                     file_path_new: str):
         self.interactor_service.upload_file(
+            bucket_path=bucket_path,
             file_path=file_path,
             file_path_new=file_path_new,)
 
     def download_file(self,
+                      bucket_path: str,
                       file_path: str,
                       file_path_new: str):
         self.interactor_service.download_file(
+            bucket_path=bucket_path,
             file_path=file_path,
             file_path_new=file_path_new,)
 
