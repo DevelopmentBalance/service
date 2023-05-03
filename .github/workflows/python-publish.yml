@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-n-publish:
-    name: Starting...
+    name: CI/CD Publish distribution 📦 to PyPI
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@master
