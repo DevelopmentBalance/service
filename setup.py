@@ -6,7 +6,10 @@ DIRECTORY = os.path.dirname(__file__)
 
 REQUIREMENTS = open(os.path.join(DIRECTORY, "requirements.txt")).read().split()
 
-VERSION = subprocess.run(['git', 'describe', '--tags'],  stdout=subprocess.PIPE).stdout.decode("utf-8").strip()
+VERSION = subprocess.run(
+    ['git', 'describe', '--tags'],
+    stdout=subprocess.PIPE,).stdout.decode("utf-8").strip()
+
 assert "." in VERSION
 
 READ_ME = open(os.path.join(DIRECTORY, "README.rst")).read()
