@@ -5,10 +5,11 @@ on:
     types: [created]
 
 jobs:
-  name: Settings system
-  runs-on: ubuntu-18.04
-  steps:
-    - uses: actions/checkout@main
+  build-n-publish:
+    name: Starting...
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@master
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
       with:
